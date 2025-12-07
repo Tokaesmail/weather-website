@@ -26,6 +26,9 @@
 .cards{
     height: 70vh ;
 }
+.data h1{
+    font-size: 4rem;
+}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

@@ -1,13 +1,20 @@
 body
 {
     color: #bfc1c8;
+    overflow-x: hidden;
 }
 :root{
     --main-color:#1e202b;
     --secondary-color:#323544;
     --third-color:#05a2da;
 }
-
+.card{
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    -ms-border-radius: 500px;
+    -o-border-radius: 500px;
+}
 /*^ navbar */
 
 nav
