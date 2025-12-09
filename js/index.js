@@ -6,6 +6,7 @@ let APY_KEY='3cb9d3f55a7242e48de145043250612';
 let BASE_URL=`https://api.weatherapi.com/v1/forecast.json?key=${APY_KEY}&days=3&q=`;
 
 async function Api(cityName="cairo"){
+    showLoading();
     const response = await fetch(BASE_URL+cityName);
     const data = await response.json();
 
@@ -19,6 +20,16 @@ async function getWeather(cityName){
 }
 // getWeather();
 getlocation();
+
+function showLoading() {
+    document.querySelector(".cards-container").innerHTML = `
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 400px;">
+            <div class="spinner-border text-info" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    `;
+}
 
 let count=0;
 let inpFun;
@@ -90,11 +101,11 @@ function displayWeather(data){
                 <div class="box border-0 row row-cols-md-1 row-cols-lg-3 w-75 container-xlg position-absolute start-50 translate-middle">
                     <div class="card text-white p-0 border-0">
                         <div class="inner">
-                            <div class="header d-flex flex-row justify-content-between">
+                            <div class="header style-top-left d-flex flex-row justify-content-between">
                             <p>${name}</p>
                             <p>${Day}  ${month}</p>
                         </div>
-                        <div class="body p-3">
+                        <div class="body style-bottom-left p-3">
                             <div class="d-sm-flex flex-sm-row flex-lg-column">
                                 <div class="data">
                                     <p>${name}</p>
@@ -139,10 +150,10 @@ function displayWeather(data){
                         </div>
                     </div>
                     <div class="card text-white p-0 border-0">
-                        <div class="header text-center">
+                        <div class="header style-top-right text-center">
                             <p>${day2Day}</p>
                         </div>
-                        <div class="body text-center">
+                        <div class="body style-bottom-right text-center">
                             <img class="mt-5 mb-3" src=${day2Icon} alt="sunny">
                             <div class="numder mb-5">
                                 <p>${day2Maxtemp}°C</p>
